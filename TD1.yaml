@@ -1,0 +1,60 @@
+openapi: '3.0.2'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: https://STD22012.com
+paths:
+  /Students:
+    get:
+      responses:
+        '200':
+          description: ok
+          content: 
+            application/json:
+              schema:
+                type: array
+                items :
+                  type : object
+                  properties :
+                    id:
+                      type: integer
+                      example: 1
+                    name: 
+                      type: string 
+                      example: 'Shedds'
+                    birthdate: 
+                      type: string 
+                      format: date-time
+                      example: '2005-04-01'
+                    STDRef:
+                      type: string
+                      example: 'STD22012'
+        '500':
+          description: Invalid server error
+    post:
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              type: object
+              required:   
+                - id
+                - name
+                - birthdate
+                - STDRef 
+              properties :
+                id:
+                  type: integer
+                  example: 1
+                name: 
+                  type: string 
+                  example: 'Shedds'
+                birthdate: 
+                  type: string 
+                  format: date-time
+                  example: '2005-04-01'
+                STDRef:
+                  type: string
+                  example: 'STD22012'
+
