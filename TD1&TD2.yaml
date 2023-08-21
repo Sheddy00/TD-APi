@@ -141,7 +141,6 @@ paths:
                           example: 2h
         '500':
           description: Invalid server error
-
     post:
       tags:
         - Teachers
@@ -174,7 +173,6 @@ paths:
                     courseDuration:
                       type: integer
                       example: 2h
-
     put:
       tags:
         - Teachers
@@ -212,7 +210,6 @@ paths:
           description: Student updated successfully
         '404':
           description: Student not found
-
     delete: 
       tags:
         - Teachers
