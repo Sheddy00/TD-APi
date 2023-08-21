@@ -1,0 +1,227 @@
+openapi: '3.0.2'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: https://STD22012.com
+paths:
+  /Students:
+    get:
+      tags:
+        - Students
+      summary: Show a student
+      responses:
+        '200':
+          description: Ok !
+          content: 
+            application/json:
+              schema:
+                type: array
+                items :
+                  type : object
+                  properties :
+                    id:
+                      type: integer
+                      example: 1
+                    name: 
+                      type: string 
+                      example: 'Shedds'
+                    birthdate: 
+                      type: string 
+                      format: date-time
+                      example: '2005-04-01'
+                    STDRef:
+                      type: string
+                      example: 'STD22012'
+        '500':
+          description: Invalid server error
+    post:
+      tags:
+        - Students
+      summary: Post new student
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              type: object
+              required:   
+                - id
+                - name
+                - birthdate
+                - STDRef 
+              properties :
+                id:
+                  type: integer
+                  example: 1
+                name: 
+                  type: string 
+                  example: 'Shedds'
+                birthdate: 
+                  type: string 
+                  format: date-time
+                  example: '2005-04-01'
+                STDRef:
+                  type: string
+                  example: 'STD22012'
+    put :
+      tags:
+        - Students
+      summary: Update student
+      requestBody: 
+        content:
+          application/json:
+            schema: 
+              type: object
+              required:
+                - id
+                - name
+                - birthdate
+                - STDRef
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                name: 
+                  type: string 
+                  example: 'Shedds'
+                birthdate: 
+                  type: string 
+                  format: date-time
+                  example: '2005-04-01'
+                STDRef:
+                  type: string
+                  example: 'STD22012'
+      responses:
+        '204':
+          description: Student updated successfully
+        '404':
+          description: Student not found
+    delete: 
+      tags:
+        - Students
+      summary: Delete student
+      responses:
+        '204':
+          description: Student deleted successfully
+        '404':
+          description: Student not found
+
+  /Teachers:
+    get:
+      tags:
+        - Teachers
+      summary: Show a teacher
+      responses:
+        '200':
+          description: Ok !
+          content: 
+            application/json:
+              schema:
+                type: array
+                items :
+                  type : object
+                  properties :
+                    name:
+                      type: string
+                      example: 'Ramarozaka'
+                    firstName: 
+                      type: string 
+                      example: 'Toky'
+                    listCourse:
+                      type: object
+                      properties:
+                        courseName : 
+                          type: string
+                          example: Algo
+                        code: 
+                          type: string
+                          example: PROG1
+                        courseDuration:
+                          type: integer
+                          example: 2h
+        '500':
+          description: Invalid server error
+
+    post:
+      tags:
+        - Teachers
+      summary: Post new teacher
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              type: object
+              required:   
+                - name
+                - firstName
+                - listCourse
+              properties :
+                name:
+                  type: string
+                  example: 'Ramarozaka'
+                firstName: 
+                  type: string 
+                  example: 'Toky'
+                listCourse: 
+                  type: object
+                  properties:
+                    courseName : 
+                        type: string
+                        example: Algo
+                    code: 
+                      type: string
+                      example: PROG1
+                    courseDuration:
+                      type: integer
+                      example: 2h
+
+    put:
+      tags:
+        - Teachers
+      summary: Update teacher
+      requestBody: 
+        content:
+          application/json:
+            schema: 
+              type: object
+              required:
+                - name
+                - firstName
+                - listCourse
+              properties:
+                name:
+                  type: string
+                  example: 'Ramarozaka' 
+                firstName: 
+                  type: string 
+                  example: 'Toky'
+                listCourse: 
+                  type: object
+                  properties:
+                    courseName : 
+                      type: string
+                      example: Algo
+                    code: 
+                      type: string
+                      example: PROG1
+                    courseDuration:
+                      type: integer
+                      example: 2h
+      responses:
+        '204':
+          description: Student updated successfully
+        '404':
+          description: Student not found
+
+    delete: 
+      tags:
+        - Teachers
+      summary: Delete teacher
+      responses:
+        '204':
+          description: Teacher deleted successfully
+        '404':
+          description: Teacher not found
+
+
+
