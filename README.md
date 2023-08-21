@@ -4,4 +4,3 @@
 
 ## Link to petstore.swagger.io
 * https://petstore.swagger.io/?url=#/
-
